@@ -12,6 +12,8 @@
 
     <h1>Hello Turma Flag</h1>
     <ul>
+        <li><a href="{{ route('users.all') }}">Todos os utilizadores</a></li>
+        <li><a href="{{ route('users.add') }}">Aqui podes adicionar utilizadores</a></li>
         <li><a href="{{ route('welcome') }}">Vai para a Blade Welcome</a></li>
     </ul>
 

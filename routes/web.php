@@ -13,14 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/olawelcome', function () {
+Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+//users
+Route::get('/add-user', function(){
+    return view('users.add_user');
+})->name('users.add');
+
+Route::get('/all-users', function(){
+    return view('users.all_users');
+})->name('users.all');
+
+//rota home, retorna a página inicial da nossa app
 Route::get('/home', function () {
     return view('home.index');
 })->name('index');
 
+
+//rota teste, retorna uma tag <h1>Hello World</h1>
 Route::get('/hello', function () {
     return '<h1>Hello World</h1>';
 });
@@ -29,6 +41,8 @@ Route::get('/turma/{nome}', function ($nome) {
     return '<h1>Hello Turma '.$nome.'</h1>';
 });
 
+
+//rota fallback, quando chamamos por uma rota não registada
 Route::fallback(function(){
-    return '<h1>Desculpe, a página não existe</h1>';
+    return view('home.fallback');
 });

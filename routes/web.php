@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,23 +15,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [IndexController::class, 'welcome'] )->name('welcome');
+
+//rota home, retorna a página inicial da nossa app
+Route::get('/home', [IndexController::class, 'home'])->name('index');
+
 
 //users
 Route::get('/add-user', function(){
     return view('users.add_user');
 })->name('users.add');
 
-Route::get('/all-users', function(){
-    return view('users.all_users');
-})->name('users.all');
+Route::get('/view-user', function(){
+    return view('users.view_user');
+})->name('users.view');
 
-//rota home, retorna a página inicial da nossa app
-Route::get('/home', function () {
-    return view('home.index');
-})->name('index');
+Route::get('/all-users', [UserController::class, 'allUsers'])->name('users.all');
 
 
 //rota teste, retorna uma tag <h1>Hello World</h1>

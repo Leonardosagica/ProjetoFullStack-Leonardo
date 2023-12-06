@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-<h2>Olá. Aqui podes adicionar users.</h2>
+    <h6>cucu, vamos ver um utilizador</h6>
 @endsection

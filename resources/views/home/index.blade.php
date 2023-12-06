@@ -5,13 +5,11 @@
     <ul>
         <li><a href="{{ route('users.all') }}">Todos os utilizadores</a></li>
         <li><a href="{{ route('users.add') }}">Aqui podes adicionar utilizadores</a></li>
+        <li><a href="{{ route('users.view') }}">ver um user</a></li>
         <li><a href="{{ route('welcome') }}">Vai para a Blade Welcome</a></li>
     </ul>
 
+    <h1>Olá, {{ $hello }}</h1>
 
-    @php
-        $hello = 'Estamos On e vamos ser os melhores programadores de Laravel';
-    @endphp
-
-    <h1>Olá, {{ $hello }} sdsds</h1>
+    <h1>Olá, {{ $turma }}</h1>
 @endsection

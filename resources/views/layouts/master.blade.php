@@ -56,6 +56,7 @@
     </nav>
 
     @yield('title')
+    
     @yield('content')
 
     <footer class="fixed-bottom">Footer da Flag</footer>

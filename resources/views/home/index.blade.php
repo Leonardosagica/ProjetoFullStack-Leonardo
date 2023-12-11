@@ -12,4 +12,11 @@
     <h1>Olá, {{ $hello }}</h1>
 
     <h1>Olá, {{ $turma }}</h1>
+
+    <h4>Informação da Flag</h4>
+    <ul>
+        <li>{{ $flagInfo['name'] }}</li>
+        <li>{{ $flagInfo['address'] }}</li>
+        <li>{{ $flagInfo['email'] }}</li>
+    </ul>
 @endsection

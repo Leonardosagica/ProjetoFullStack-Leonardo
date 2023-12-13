@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -14,6 +15,33 @@ class UserController extends Controller
         $contactInfo = $this->contactInfo();
         $contacts = $this->allContacts();
 
+        $allDbUsers = DB::table('users')->get();
+
+        /*
+        //busca todos os users que têm pass 1234 para mandar mail a dizer que a pass não é segura
+        $dbusers = DB::table('users')
+                    ->where('password', '1234')
+                    ->first();
+
+        foreach($dbusers as $item){
+            //manda email a dizer que pass não é segura
+            SendMail::data(to:$item->email, data:'mude a sua pass'); //dummy content de mandar mail
+        };*/
+
+
+
+
+        /*DB::table('users')
+        ->updateOrInsert(
+            ['email' => 'Eloy86@gmail.com'],
+            [
+            'name' => 'Outro Nome',
+            'password' => 'OutroPassDificil',
+            ]
+        );*/
+
+
+        //dd($dbusers);
         //debug dump and die
         //dd($contacts);
 
@@ -24,7 +52,9 @@ class UserController extends Controller
             'users',
             'tasks',
             'contactInfo',
-            'contacts'
+            'contacts',
+            //'dbusers',
+            'allDbUsers'
         ));
     }
 
@@ -46,7 +76,7 @@ class UserController extends Controller
     }
 
     protected function allContacts(){
-        
+
         $contacts =[
             ['1', 'Sara', '96666666'],
             ['2', 'Larissa', '96666666'],

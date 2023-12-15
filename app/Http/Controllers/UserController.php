@@ -30,7 +30,6 @@ class UserController extends Controller
 
 
 
-
         /*DB::table('users')
         ->updateOrInsert(
             ['email' => 'Eloy86@gmail.com'],

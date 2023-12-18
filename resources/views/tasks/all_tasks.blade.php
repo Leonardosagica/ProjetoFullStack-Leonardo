@@ -10,6 +10,8 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">User</th>
+                    <td></td>
+                    <td></td>
                 </tr>
             </thead>
             <tbody>
@@ -18,6 +20,10 @@
                         <th scope="row">{{ $task->id }}</th>
                         <td>{{ $task->name }}</td>
                         <td>{{ $task->user_name }}</td>
+                        <td> <a href="{{ route('tasks.view', $task->id) }}" class="btn btn-info">Ver Tarefa</a></td>
+                        <td>
+                            <a href="{{ route('tasks.delete', $task->id) }}" class="btn btn-danger">Apagar Tarefa</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

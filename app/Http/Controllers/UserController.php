@@ -60,6 +60,18 @@ class UserController extends Controller
         ));
     }
 
+    public function createUser(Request $request){
+        //dd($request->all());
+
+        $request->validate([
+            'name' => 'string|required|max:50',
+            'password' => 'required|min:6',
+            'email' => 'required|unique:users'
+        ]);
+
+        
+    }
+
     public function viewUser($id){
 
         $user = User::where('id', $id)->first();

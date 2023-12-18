@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Console\View\Components\Task;
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -23,6 +23,25 @@ class TaskController extends Controller
             'dbTasks'
 
     ));
+    }
+
+    public function viewTask($id){
+
+        $task = Task::where('id',$id)
+        ->first();
+
+
+        return view('tasks.view_task', compact('task'));
+
+    }
+
+    public function deleteTask($id){
+
+        DB::table('tasks')
+        ->where('id',$id )
+        ->delete();
+
+        return back();
     }
 
     protected function getAllTasks(){

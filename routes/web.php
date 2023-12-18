@@ -23,8 +23,10 @@ Route::get('/home', [IndexController::class, 'home'])->name('index');
 
 //users
 Route::get('/add-user', [UserController::class, 'addUser'])->name('users.add');
-Route::get('/view-user', [UserController::class, 'viewUser'])->name('users.view');
+Route::get('/view-user/{id}', [UserController::class, 'viewUser'])->name('users.view');
 Route::get('/all-users', [UserController::class, 'allUsers'])->name('users.all');
+Route::get('/delete-user/{id}', [UserController::class, 'deleteUser'])->name('users.delete');
+
 
 //tasks
 Route::get('/all-tasks', [TaskController::class, 'allTasks'])->name('tasks.all');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +16,9 @@ class UserController extends Controller
         $contactInfo = $this->contactInfo();
         $contacts = $this->allContacts();
 
-        $allDbUsers = DB::table('users')->get();
+        //$allDbUsers = DB::table('users')->get();
+
+        $allDbUsers = User::get();
 
         /*
         //busca todos os users que têm pass 1234 para mandar mail a dizer que a pass não é segura
@@ -57,8 +60,25 @@ class UserController extends Controller
         ));
     }
 
-    public function viewUser(){
-        return view('users.view_user');
+    public function viewUser($id){
+
+        $user = User::where('id', $id)->first();
+
+        return view('users.view_user',
+        compact('user'));
+    }
+
+    public function deleteUser($id){
+        DB::table('tasks')
+        ->where('user_id', $id)
+        ->delete();
+
+        DB::table('users')
+        ->where('id', $id)
+        ->delete();
+
+        return back();
+
     }
 
     public function addUser(){

@@ -41,6 +41,8 @@
                     <th scope="col">Email</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Password</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +53,8 @@
                         <td>{{ $item->email }}</td>
                         <td>{{ $item->phone }}</td>
                         <td>{{ $item->password }}</td>
+                        <td> <a href="{{ route('users.view', $item->id) }}" class="btn btn-info">Ver Utilizador</a></td>
+                        <td> <a href="{{ route('users.delete', $item->id)}}" class="btn btn-danger">Apagar Utilizador</a></td>
                     </tr>
                 @endforeach
             </tbody>

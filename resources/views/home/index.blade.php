@@ -9,6 +9,9 @@
             {{--<li><a href="{{ route('users.view') }}">ver um user</a></li>--}}
             <li><a href="{{ route('welcome') }}">Vai para a Blade Welcome</a></li>
             <li><a href="{{ route('tasks.all') }}">Todas as Tarefas</a></li>
+            <li><a href="{{ route('tasks.add') }}">Aqui podes adicionar uma Tarefa</a></li>
+
+
         </ul>
 
         <h1>Olá, {{ $hello }}</h1>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\FuncCall;
 
 class TaskController extends Controller
 {
@@ -42,6 +43,14 @@ class TaskController extends Controller
         ->delete();
 
         return back();
+    }
+
+    public function addTask(){
+        return view('tasks.add_task');
+    }
+
+    public function createTask(Request $request){
+        //receeber os dados do form e inserir na BD
     }
 
     protected function getAllTasks(){

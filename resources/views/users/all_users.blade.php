@@ -33,6 +33,11 @@
         </ul> - --}}
 
         <h4>Todos os Users</h4>
+        @if (session('message'))
+            <div class="alert alert-success" role="alert">
+                {{ session('message') }}
+            </div>
+        @endif
         <table class="table">
             <thead>
                 <tr>
@@ -54,7 +59,8 @@
                         <td>{{ $item->phone }}</td>
                         <td>{{ $item->password }}</td>
                         <td> <a href="{{ route('users.view', $item->id) }}" class="btn btn-info">Ver Utilizador</a></td>
-                        <td> <a href="{{ route('users.delete', $item->id)}}" class="btn btn-danger">Apagar Utilizador</a></td>
+                        <td> <a href="{{ route('users.delete', $item->id) }}" class="btn btn-danger">Apagar Utilizador</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

@@ -4,6 +4,11 @@
 @section('content')
     <div class="container">
         <h1>Aqui tens todas as Tarefas</h1>
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
         <table class="table">
             <thead>
                 <tr>

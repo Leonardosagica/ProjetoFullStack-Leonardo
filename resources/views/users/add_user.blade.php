@@ -26,7 +26,9 @@
                 <label for="exampleInputPassword1" class="form-label">Password</label>
                 <input name="password" value="" type="password" class="form-control" id="exampleInputPassword1">
                 @error('password')
-                    pf coloque uma password com mais de 6 caracteres
+                    <div class="alert alert-danger">
+                        pf coloque uma password com mais de 6 caracteres
+                    </div>
                 @enderror
 
             </div>

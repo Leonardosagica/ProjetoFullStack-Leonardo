@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+
     public function allUsers(){
 
         $users = ['João', 'Filipe', 'Sara'];
@@ -77,6 +80,27 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('users.all')->with('message', 'utilizador adicionado com sucesso');
+
+
+    }
+
+    public function updateUser(Request $request){
+        $request->validate([
+            'name' => 'string|required|max:50',
+            'password' => 'required|min:6',
+        ]);
+
+
+        User::where('id',$request->id)
+        ->update([
+            'name' =>  $request->name,
+            'phone' =>  $request->phone,
+            'address' =>  $request->address,
+            'password' => Hash::make($request->password),
+        ]);
+
+        //Auth::attempt();
+        return redirect()->route('users.all')->with('message', 'utilizador actualizado com sucesso');
 
 
     }

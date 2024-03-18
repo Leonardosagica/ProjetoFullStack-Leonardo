@@ -44,12 +44,8 @@ class DoctorController extends Controller
     public function update(Request $request, $id)
     {
        $validator = Validator::make($request->all(), [
-        'name' => [
-            'required',
-            'string',
-            'max:255'
-        ],
-        'specialty' => 'required|string|min:55',
+        'name' => 'required|string|max:255'. $id,
+        'specialty' => 'required|string|max:55',
     ]);
 
         if ($validator->fails()) {

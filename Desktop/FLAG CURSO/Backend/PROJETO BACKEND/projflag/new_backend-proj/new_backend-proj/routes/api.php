@@ -39,6 +39,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/add_user', [UserController::class, 'create']);
     Route::put('/add_user/{user}', [UserController::class, 'update']);
     Route::get('/user/{user}', [UserController::class, 'getUserId']);
+    Route::delete('/user_delete/{user}', [UserController::class, 'destroy']);
 
     // doctors routes
     Route::get('/add_doctors', [DoctorController::class, 'show'] );
